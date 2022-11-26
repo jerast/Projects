@@ -7,7 +7,7 @@ import TasksList from './pages/TasksList';
 
 const App = () => {
 	return (
-		<main className="bg-zinc-900 h-screen flex flex-col">
+		<main className="main">
 			<TaskContextProvider>
 				<Navbar />
 				<Routes>

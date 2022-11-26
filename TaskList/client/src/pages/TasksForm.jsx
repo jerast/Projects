@@ -25,7 +25,7 @@ const TasksForm = () => {
 
 	return (
 		<section className='main-section grid grid-flow-row justify-items-center gap-8 px-12 py-8'>
-			<h1 className="font-bold text-zinc-300 text-4xl my-4">{params.id ? 'Edit task' : 'New Task'}</h1>
+			<h1 className="font-bold text-zinc-700 dark:text-zinc-300 text-4xl my-4">{params.id ? 'Edit task' : 'New Task'}</h1>
 
 			<Formik
 				initialValues={task}
