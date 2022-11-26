@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	body {
+		@apply relative h-screen;
+	}
+	.main-section {
+		@apply overflow-y-auto overflow-x-hidden;
+	}
+	.card {
+		@apply max-w-[500px] w-full bg-zinc-800 px-8 py-4 rounded-xl shadow-xl;
+	}
+	.card-status {
+		@apply absolute top-[-16px] right-[-16px] border-8 border-zinc-900 rounded-full w-14 h-14 flex justify-center place-items-center text-zinc-300;
+	}
+	.card-button {
+		@apply bg-zinc-800 text-zinc-300 border-4 border-zinc-900 rounded-full w-10 h-10 text-[16px] flex justify-center items-center;
+	}
+	.navbar-link {
+		@apply text-gray-300 text-sm bg-zinc-700 leading-none flex items-center px-4 py-2 rounded-full hover:bg-violet-800 hover:text-gray-100 active:bg-violet-700 cursor-pointer h-8 ease-in-out duration-100;
+	}
+	.form {
+		@apply bg-zinc-800 rounded-xl px-10 p-8 grid gap-6 max-w-[500px] w-full justify-items-center;
+	}
+	.form label {
+		@apply text-zinc-500 flex flex-col gap-2 w-full;
+	}
+	.form label input,
+	.form label textarea {
+		@apply bg-zinc-700 rounded-xl py-2 px-3 text-zinc-300 w-full;
+	}
+	.form-button {
+		@apply bg-violet-600 text-zinc-300 w-fit rounded-full px-6 py-2 mt-2;
+	}
+	.fixed-button {
+		@apply bg-violet-800 hover:bg-violet-700 text-zinc-300 p-4 text-[62px] rounded-full fixed right-8 bottom-8 ease-in-out duration-150;
+	}
+}
