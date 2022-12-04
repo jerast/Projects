@@ -8,7 +8,7 @@ const Navbar = () => {
 		<nav className="navbar">
 			<Link to="/" className="navbar-icon">
 				<img src="/vite.svg" alt="" />
-				<span className='hidden sm:block'>MERN Tasks List</span>
+				<span className='hidden sm:block'>Tasks List APP</span>
 			</Link>
 			<ul className="flex gap-2 sm:gap-4">
 				<li>
