@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	* {
+		@apply ease-in-out duration-150;
+	}
+
+	.main {
+		@apply grid grid-cols-1 md:grid-cols-2-min grid-rows-2-min
+        bg-zinc-300 dark:bg-zinc-900;
+	}
+
+	.header {
+		@apply shadow-lg col-start-1 col-end-3 z-10 h-header-screen-60 2xl:h-header-screen-80
+        bg-zinc-200 dark:bg-zinc-800;
+	}
+
+	.navbar {
+		@apply flex items-center justify-between py-3 pl-12 pr-16 h-full;
+	}
+	.navbar-icon {
+		@apply flex items-center gap-3 text-xl font-light
+		text-gray-700 dark:text-gray-200;
+	}
+	.navbar-icon span {
+		@apply hidden sm:block;
+	}
+	.navbar-buttons {
+		@apply flex gap-2;
+	}
+	.navbar-link {
+		@apply leading-none flex items-center rounded-full cursor-pointer p-2 text-xl 
+        text-gray-600 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300 active:bg-zinc-300 dark:active:bg-zinc-700;
+	}
+
+	.sidebar {
+		@apply hidden md:flex md:flex-col md:justify-between md:w-20 xl:w-64 2xl:w-72 h-screen-header-60 2xl:h-screen-header-80
+		bg-zinc-200 dark:bg-zinc-800;
+	}
+	.sidebar-list {
+		@apply flex flex-col gap-4 xl:gap-2 py-5 md:px-5 xl:px-10 h-fit;
+	}
+	.sidebar-list:first-of-type {
+		@apply overflow-y-auto;
+	}
+	.sidebar-list li > span {
+		@apply hidden xl:block text-xs my-2
+        text-zinc-600 dark:text-zinc-500 cursor-default;
+	}
+	.sidebar-link {
+		@apply leading-none flex items-center justify-center xl:justify-start xl:px-5 rounded-lg cursor-pointer w-full h-9
+		hover:bg-zinc-300 dark:hover:bg-zinc-700 text-gray-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-300;
+	}
+	.sidebar-link > svg {
+		@apply text-base;
+	}
+	.sidebar-link > span {
+		@apply hidden xl:block ml-5 text-xs;
+	}
+	.sidebar-button {
+		@apply leading-none flex items-center justify-center xl:justify-start xl:px-5 my-0 xl:my-3 rounded-xl cursor-pointer w-full h-10
+		bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-violet-800 hover:bg-violet-600 active:bg-violet-700 dark:active:bg-violet-700 text-gray-600 dark:text-gray-300 hover:text-gray-100;
+	}
+	.sidebar-button > svg {
+		@apply text-sm;
+	}
+	.sidebar-button > span {
+		@apply hidden xl:block ml-4 text-xs;
+	}
+
+	.page-container {
+		@apply overflow-y-auto grid auto-rows-min justify-items-center gap-8 md:px-20 py-8 h-screen-header-60 xl:h-screen-header-80;
+	}
+	.page-title {
+		@apply font-bold text-4xl my-4
+        text-zinc-700 dark:text-zinc-300;
+	}
+
+	.post {
+		@apply w-full md:max-w-[680px] md:rounded-xl overflow-hidden shadow-md
+		bg-zinc-200 dark:bg-zinc-800;
+	}
+	.post-header {
+		@apply flex gap-3 px-4 pt-4 pb-2;
+	}
+	.post-header img {
+		@apply rounded-full w-10 h-10;
+	}
+	.post-header p {
+		@apply flex flex-col gap-[6px] w-full py-[2px];
+	}
+	.post-header p span:nth-child(1) {
+		@apply font-bold text-sm leading-none
+		text-zinc-600 dark:text-zinc-300;
+	}
+	.post-header p span:nth-child(2) {
+		@apply text-xs leading-none
+		text-zinc-500	dark:text-zinc-400;
+	}
+	.post-buttons {
+		@apply flex gap-2 items-center;
+	}
+	.post-buttons a {
+		@apply flex items-center justify-center w-9 h-9 rounded-full text-lg
+		text-zinc-500 hover:bg-zinc-300 dark:text-zinc-400 dark:hover:bg-zinc-700;
+	}
+	.post-title {
+		@apply px-4 pb-3 text-sm leading-[1.15rem] whitespace-pre-wrap
+		text-zinc-800 dark:text-zinc-300;
+	}
+	.post-title-bg {
+		@apply relative w-full aspect-post-xl;
+	}
+	.post-title-bg img {
+		@apply w-full h-full;
+	}
+	.post-title-bg span {
+		@apply flex absolute items-center justify-center h-full w-full font-bold text-3xl px-10 text-center z-30 top-0 whitespace-pre-wrap;
+	}
+	.post-image {
+		@apply flex justify-center w-full max-h-[625px]
+		dark:bg-[#1c1a22];
+	}
+	.post-image img {
+		@apply min-h-full;
+	}
+	.post-division {
+		@apply border-zinc-300 dark:border-zinc-700;
+	}
+	.post-interaction {
+		@apply flex px-4 py-[5px] gap-1;
+	}
+	.post-interaction button {
+		@apply flex justify-center items-center flex-grow h-10 gap-[6px] rounded-lg
+		text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700;
+	}
+	.post-interaction span {
+		@apply font-bold text-sm;
+	}
+	.post-interaction button:nth-child(1) svg {
+		@apply text-[24px] text-zinc-500;
+	}
+	.post-interaction button:nth-child(1) svg.liked {
+		@apply text-blue-600;
+	}
+	.post-interaction button:nth-child(2) svg {
+		@apply w-7 text-[19px];
+	}
+	.post-interaction button:nth-child(3) svg {
+		@apply w-7 text-[24px];
+	}
+
+	.post-form {
+		@apply flex flex-col w-full md:max-w-[500px] h-post-form-60 md:h-min md:min-h-[428px] md:rounded-xl
+		bg-zinc-200 dark:bg-zinc-800;
+	}
+	.post-form-header {
+		@apply w-full flex items-center justify-center relative border-b-[1px] p-4
+		border-zinc-300 dark:border-zinc-700;
+	}
+	.post-form-header h1 {
+		@apply font-bold text-xl
+		text-zinc-600 dark:text-zinc-300;
+	}
+	.post-form-header a {
+		@apply absolute flex items-center justify-center z-10 right-4 w-9 h-9 rounded-full text-base font-bold leading-none cursor-pointer
+		bg-zinc-300 hover:bg-zinc-400 hover:bg-opacity-50 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-zinc-600 dark:text-zinc-400;
+	}
+	.post-form-profiler {
+		@apply flex gap-3 p-4;
+	}
+	.post-form-profiler img {
+		@apply rounded-full w-10 h-10;
+	}
+	.post-form-profiler p {
+		@apply flex flex-col gap-[6px] w-full py-[2px];
+	}
+	.post-form-profiler p span:nth-child(1) {
+		@apply font-bold text-sm leading-none
+		text-zinc-600 dark:text-zinc-300;
+	}
+	.post-form-profiler p span:nth-child(2) {
+		@apply text-[11px] leading-none w-fit py-[3px] pt-[5px] px-2 rounded-md font-semibold
+		text-zinc-600 dark:text-zinc-300 bg-zinc-300 dark:bg-zinc-700;
+	}
+	.post-form-title {
+		@apply w-full flex-grow bg-transparent resize-none px-4 py-1 text-2xl border-none outline-none
+		text-zinc-600 dark:text-zinc-300 placeholder-zinc-500 whitespace-pre-wrap;
+	}
+	.post-form-submit-button {
+		@apply box-border rounded-lg h-10 m-4 w-[-moz-available] w-[-webkit-fill-available] font-semibold text-[15px]
+		bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-violet-800 hover:bg-violet-600 active:bg-violet-700 dark:active:bg-violet-700 text-gray-600 dark:text-gray-300 hover:text-gray-100;
+	}
+}
