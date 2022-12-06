@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BsMoonStars, BsXOctagon, BsHouse, BsUpload } from 'react-icons/bs';
+import { BsFillHouseDoorFill, BsPlusLg } from 'react-icons/bs';
 
 const Navbar = () => {
 	return (
@@ -10,41 +10,17 @@ const Navbar = () => {
 					<ul>
 						<li>
 							<Link to="/" className="sidebar-link">
-								<BsHouse />
+								<BsFillHouseDoorFill />
 								<span>Dashboard</span>
 							</Link>
 						</li>
 						<li>
 							<Link to="/new" className="sidebar-link">
-								<BsUpload />
+								<BsPlusLg />
 								<span>New Post</span>
 							</Link>
 						</li>
 					</ul>
-				</li>
-				<li>
-					<span>Settings</span>
-					<ul>
-						<li>
-							<Link to="/notFound" className="sidebar-link">
-								<BsXOctagon />
-								<span>Not Found Page</span>
-							</Link>
-						</li>
-					</ul>
-				</li>
-			</ul>
-			<ul className="sidebar-list">
-				<li>
-					<button
-						className="sidebar-button"
-						onClick={() => {
-							document.body.classList.toggle('dark');
-						}}
-					>
-						<BsMoonStars />
-						<span>Dark mode</span>
-					</button>
 				</li>
 			</ul>
 		</nav>
