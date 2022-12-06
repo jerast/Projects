@@ -8,12 +8,12 @@
 	}
 
 	.main {
-		@apply grid grid-cols-1 md:grid-cols-2-min grid-rows-2-min
+		@apply relative grid grid-cols-1 md:grid-cols-2-min grid-rows-2-min
         bg-zinc-300 dark:bg-zinc-900;
 	}
 
 	.header {
-		@apply shadow-lg col-start-1 col-end-3 z-10 h-header-screen-60 2xl:h-header-screen-80
+		@apply col-start-1 col-end-3 h-header-screen-60 2xl:h-header-screen-80 shadow-lg z-[1]
         bg-zinc-200 dark:bg-zinc-800;
 	}
 
@@ -31,18 +31,21 @@
 		@apply flex gap-2;
 	}
 	.navbar-link {
-		@apply leading-none flex items-center rounded-full cursor-pointer p-2 text-xl 
-        text-gray-600 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-300 active:bg-zinc-300 dark:active:bg-zinc-700;
+		@apply flex items-center rounded-full cursor-pointer p-3 text-lg
+		text-zinc-500 dark:text-zinc-300 bg-zinc-300 hover:bg-zinc-400 hover:bg-opacity-60 dark:bg-zinc-700 dark:hover:bg-zinc-600;
+	}
+	.navbar-profile {
+		@apply rounded-full w-[42px] cursor-pointer hover:brightness-110;
 	}
 
 	.sidebar {
 		@apply hidden md:flex md:flex-col md:justify-between md:w-20 xl:w-64 2xl:w-72 h-screen-header-60 2xl:h-screen-header-80
-		bg-zinc-200 dark:bg-zinc-800;
+		bg-transparent;
 	}
 	.sidebar-list {
 		@apply flex flex-col gap-4 xl:gap-2 py-5 md:px-5 xl:px-10 h-fit;
 	}
-	.sidebar-list:first-of-type {
+	.sidebar-list:nth-of-type(1) {
 		@apply overflow-y-auto;
 	}
 	.sidebar-list li > span {
@@ -51,23 +54,13 @@
 	}
 	.sidebar-link {
 		@apply leading-none flex items-center justify-center xl:justify-start xl:px-5 rounded-lg cursor-pointer w-full h-9
-		hover:bg-zinc-300 dark:hover:bg-zinc-700 text-gray-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-300;
+		hover:bg-zinc-400 hover:bg-opacity-50 dark:hover:bg-zinc-700 text-gray-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-300;
 	}
 	.sidebar-link > svg {
 		@apply text-base;
 	}
 	.sidebar-link > span {
 		@apply hidden xl:block ml-5 text-xs;
-	}
-	.sidebar-button {
-		@apply leading-none flex items-center justify-center xl:justify-start xl:px-5 my-0 xl:my-3 rounded-xl cursor-pointer w-full h-10
-		bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-violet-800 hover:bg-violet-600 active:bg-violet-700 dark:active:bg-violet-700 text-gray-600 dark:text-gray-300 hover:text-gray-100;
-	}
-	.sidebar-button > svg {
-		@apply text-sm;
-	}
-	.sidebar-button > span {
-		@apply hidden xl:block ml-4 text-xs;
 	}
 
 	.page-container {
@@ -102,12 +95,13 @@
 	.post-buttons {
 		@apply flex gap-2 items-center;
 	}
-	.post-buttons a {
+	.post-buttons a,
+	.post-buttons button {
 		@apply flex items-center justify-center w-9 h-9 rounded-full text-lg
 		text-zinc-500 hover:bg-zinc-300 dark:text-zinc-400 dark:hover:bg-zinc-700;
 	}
 	.post-title {
-		@apply px-4 pb-3 text-sm leading-[1.15rem] whitespace-pre-wrap
+		@apply px-4 pb-3 text-sm leading-[1.15rem] whitespace-pre-wrap break-words
 		text-zinc-800 dark:text-zinc-300;
 	}
 	.post-title-bg {
@@ -117,7 +111,7 @@
 		@apply w-full h-full;
 	}
 	.post-title-bg span {
-		@apply flex absolute items-center justify-center h-full w-full font-bold text-3xl px-10 text-center z-30 top-0 whitespace-pre-wrap;
+		@apply flex absolute items-center justify-center h-full w-full font-bold text-xl sm:text-3xl px-10 text-center top-0 whitespace-pre-wrap break-words;
 	}
 	.post-image {
 		@apply flex justify-center w-full max-h-[625px]
@@ -133,7 +127,7 @@
 		@apply flex px-4 py-[5px] gap-1;
 	}
 	.post-interaction button {
-		@apply flex justify-center items-center flex-grow h-10 gap-[6px] rounded-lg
+		@apply flex justify-center items-center flex-grow h-10 gap-[6px] rounded-lg active:scale-95
 		text-zinc-600 dark:text-zinc-400 hover:bg-zinc-300 dark:hover:bg-zinc-700;
 	}
 	.post-interaction span {
@@ -165,7 +159,7 @@
 		text-zinc-600 dark:text-zinc-300;
 	}
 	.post-form-header a {
-		@apply absolute flex items-center justify-center z-10 right-4 w-9 h-9 rounded-full text-base font-bold leading-none cursor-pointer
+		@apply absolute flex items-center justify-center right-4 w-9 h-9 rounded-full text-base font-bold leading-none cursor-pointer
 		bg-zinc-300 hover:bg-zinc-400 hover:bg-opacity-50 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-zinc-600 dark:text-zinc-400;
 	}
 	.post-form-profiler {
@@ -182,15 +176,57 @@
 		text-zinc-600 dark:text-zinc-300;
 	}
 	.post-form-profiler p span:nth-child(2) {
-		@apply text-[11px] leading-none w-fit py-[3px] pt-[5px] px-2 rounded-md font-semibold
+		@apply text-[11px] leading-none w-fit px-2 py-1 rounded-md font-semibold
 		text-zinc-600 dark:text-zinc-300 bg-zinc-300 dark:bg-zinc-700;
 	}
 	.post-form-title {
 		@apply w-full flex-grow bg-transparent resize-none px-4 py-1 text-2xl border-none outline-none
 		text-zinc-600 dark:text-zinc-300 placeholder-zinc-500 whitespace-pre-wrap;
 	}
+	.post-form-backgrounds {
+		@apply flex gap-2 md:gap-3 justify-center;
+	}
+	.post-form-backgrounds label {
+		@apply relative cursor-pointer;
+	}
+	.post-form-backgrounds input {
+		@apply absolute h-0 w-0 opacity-0 invisible;
+	}
+	.post-form-backgrounds input:checked + * {
+		@apply outline-violet-600 dark:outline-violet-700 outline outline-2 outline-offset-2 opacity-100
+	}
+	.post-form-backgrounds img {
+		@apply h-8 md:h-10 rounded-md md:rounded-xl duration-75 aspect-square;
+	}
+	.post-form-backgrounds span {
+		@apply flex justify-center items-center h-8 md:h-10 w-8 md:w-10 border-none outline-none rounded-md md:rounded-xl
+		bg-zinc-900 text-zinc-400;
+	}
 	.post-form-submit-button {
 		@apply box-border rounded-lg h-10 m-4 w-[-moz-available] w-[-webkit-fill-available] font-semibold text-[15px]
-		bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-violet-800 hover:bg-violet-600 active:bg-violet-700 dark:active:bg-violet-700 text-gray-600 dark:text-gray-300 hover:text-gray-100;
+		text-gray-200 dark:text-gray-300
+		bg-violet-600 dark:bg-violet-800 
+		enabled:hover:bg-violet-600 enabled:dark:hover:bg-violet-700 enabled:cursor-pointer
+		disabled:bg-zinc-300 disabled:dark:bg-zinc-700 disabled:text-gray-600 disabled:opacity-60;
+	}
+
+	.main div:last-of-type > div > div {
+		@apply bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300;
+	}
+	.toast {
+		@apply flex flex-col gap-3 items-center;
+	}
+	.toast-buttons {
+		@apply flex gap-3;
+	}
+	.toast-buttons button {
+		@apply w-full px-3 py-2 rounded-md text-xs
+		dark:text-zinc-300;
+	}
+	.toast-buttons .button-primary {
+		@apply bg-violet-600 dark:bg-violet-800 hover:bg-violet-600 dark:hover:bg-violet-700 text-gray-200 dark:text-gray-300;
+	}
+	.toast-buttons .button-secondary {
+		@apply text-zinc-600 dark:text-zinc-400 bg-zinc-300 dark:bg-zinc-700;
 	}
 }

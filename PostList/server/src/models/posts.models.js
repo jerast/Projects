@@ -5,11 +5,6 @@ const postSquema = new mongoose.Schema({
 		type: String,
 		trim: true,
 	},
-	description: {
-		type: String,
-		default: 'Posting',
-		trim: true,
-	},
 	image: {
 		url: String,
 		public_id: String,

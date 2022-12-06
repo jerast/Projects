@@ -1,21 +1,22 @@
-import { Link } from 'react-router-dom';
+import { usePosts } from '../context/PostContext';
 import { BsPencil, BsTrash, BsChat, BsReply } from 'react-icons/bs';
 import { AiTwotoneLike, AiOutlineLike } from 'react-icons/ai';
-import { titleBgData } from '../api/titleBg.data';
+import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
-const Post = ({ post }) => {
+const PostCard = ({ post }) => {
+	const { deletePost, toogleLike, backgrounds } = usePosts();
+
 	const handleTitle = () => {
 		if (!post.title) return;
 
 		if (post.titleBg)
 			return (
 				<div className="post-title-bg">
-					<img src={titleBgData[post.titleBg].url} alt="" />
+					<img src={backgrounds[post.titleBg - 1].url} alt="" />
 					<span
 						className={
-							titleBgData[post.titleBg].dark
-								? 'text-zinc-200 shadow-md'
-								: 'text-zinc-700'
+							backgrounds[post.titleBg - 1].dark ? 'text-zinc-200' : 'text-zinc-700'
 						}
 					>
 						{post.title}
@@ -25,7 +26,6 @@ const Post = ({ post }) => {
 
 		return <p className="post-title">{post.title}</p>;
 	};
-
 	const handleImage = () => {
 		if (!post.image) return;
 
@@ -34,6 +34,28 @@ const Post = ({ post }) => {
 				<img src={post.image.url} alt="" />
 			</figure>
 		);
+	};
+	const handleDelete = () => {
+		toast((t) => (
+			<div className="toast">
+				<p className="toast-message">Do you want to delete?</p>
+				<div className="toast-buttons">
+					<button className="button-secondary" onClick={() => toast.dismiss(t.id)}>
+						Cancel
+					</button>
+					<button
+						className="button-primary"
+						onClick={() => {
+							toast.dismiss(t.id);
+							deletePost(post._id);
+							toast.success('Deleted', { position: 'top-center' });
+						}}
+					>
+						Accept
+					</button>
+				</div>
+			</div>
+		));
 	};
 
 	return (
@@ -45,19 +67,19 @@ const Post = ({ post }) => {
 					<span>{new Date(post.date).toDateString().replace(' ', ', ')}</span>
 				</p>
 				<div className="post-buttons">
-					<Link to="/new">
+					<Link to={`/edit/${post._id}`}>
 						<BsPencil />
 					</Link>
-					<Link>
+					<button onClick={handleDelete}>
 						<BsTrash />
-					</Link>
+					</button>
 				</div>
 			</div>
 			{handleTitle()}
 			{handleImage()}
 			<hr className="post-division" />
 			<div className="post-interaction">
-				<button>
+				<button onClick={() => toogleLike(post)}>
 					{post.like ? <AiTwotoneLike className="liked" /> : <AiOutlineLike />}
 					<span>Like</span>
 				</button>
@@ -73,4 +95,4 @@ const Post = ({ post }) => {
 		</div>
 	);
 };
-export default Post;
+export default PostCard;
