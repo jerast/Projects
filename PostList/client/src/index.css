@@ -6,7 +6,6 @@
 	* {
 		@apply ease-in-out duration-150;
 	}
-
 	.main {
 		@apply relative grid grid-cols-1 md:grid-cols-2-min grid-rows-2-min
         bg-zinc-300 dark:bg-zinc-900;
@@ -64,7 +63,7 @@
 	}
 
 	.page-container {
-		@apply overflow-y-auto grid auto-rows-min justify-items-center gap-8 md:px-20 py-8 h-screen-header-60 xl:h-screen-header-80;
+		@apply overflow-y-auto grid auto-rows-min justify-items-center gap-8 md:px-20 py-8 h-screen-header-60 2xl:h-screen-header-80;
 	}
 	.page-title {
 		@apply font-bold text-4xl my-4
@@ -114,11 +113,11 @@
 		@apply flex absolute items-center justify-center h-full w-full font-bold text-xl sm:text-3xl px-10 text-center top-0 whitespace-pre-wrap break-words;
 	}
 	.post-image {
-		@apply flex justify-center w-full max-h-[625px]
+		@apply flex justify-center w-full
 		dark:bg-[#1c1a22];
 	}
 	.post-image img {
-		@apply min-h-full;
+		@apply min-h-full max-h-[625px];
 	}
 	.post-division {
 		@apply border-zinc-300 dark:border-zinc-700;
@@ -147,7 +146,7 @@
 	}
 
 	.post-form {
-		@apply flex flex-col w-full md:max-w-[500px] h-post-form-60 md:h-min md:min-h-[428px] md:rounded-xl
+		@apply flex flex-col w-full md:max-w-[500px] h-post-form-60 md:h-min md:min-h-[428px] md:rounded-xl shadow-md
 		bg-zinc-200 dark:bg-zinc-800;
 	}
 	.post-form-header {
@@ -179,12 +178,18 @@
 		@apply text-[11px] leading-none w-fit px-2 py-1 rounded-md font-semibold
 		text-zinc-600 dark:text-zinc-300 bg-zinc-300 dark:bg-zinc-700;
 	}
+	.post-form-fields {
+		@apply flex-grow flex flex-col;
+	}
+	.post-form-fields > div:nth-child(1) {
+		@apply h-full md:max-h-[500px] flex flex-col flex-grow overflow-y-auto;
+	}
 	.post-form-title {
-		@apply w-full flex-grow bg-transparent resize-none px-4 py-1 text-2xl border-none outline-none
+		@apply w-full flex-grow bg-transparent resize-none px-4 py-1 text-2xl border-none outline-none min-h-[120px]
 		text-zinc-600 dark:text-zinc-300 placeholder-zinc-500 whitespace-pre-wrap;
 	}
 	.post-form-backgrounds {
-		@apply flex gap-2 md:gap-3 justify-center;
+		@apply flex gap-2 md:gap-3 justify-center mt-4;
 	}
 	.post-form-backgrounds label {
 		@apply relative cursor-pointer;
@@ -193,7 +198,7 @@
 		@apply absolute h-0 w-0 opacity-0 invisible;
 	}
 	.post-form-backgrounds input:checked + * {
-		@apply outline-violet-600 dark:outline-violet-700 outline outline-2 outline-offset-2 opacity-100
+		@apply outline-violet-600 dark:outline-violet-700 outline outline-2 outline-offset-2 opacity-100;
 	}
 	.post-form-backgrounds img {
 		@apply h-8 md:h-10 rounded-md md:rounded-xl duration-75 aspect-square;
@@ -201,6 +206,28 @@
 	.post-form-backgrounds span {
 		@apply flex justify-center items-center h-8 md:h-10 w-8 md:w-10 border-none outline-none rounded-md md:rounded-xl
 		bg-zinc-900 text-zinc-400;
+	}
+	.post-form-image {
+		@apply relative border p-2 rounded-lg mx-4 mt-4 cursor-pointer 
+		border-zinc-400 dark:border-zinc-600 border-opacity-60 dark:border-opacity-60
+		text-zinc-700 dark:text-zinc-400
+	}
+	.post-form-image input {
+		@apply absolute -z-10 invisible;
+	}
+	.post-form-image > div {
+		@apply flex flex-col rounded-md min-h-[170px] items-center justify-center 
+		bg-zinc-300 dark:bg-zinc-700 
+		bg-opacity-60 dark:bg-opacity-60 hover:bg-opacity-100 dark:hover:bg-opacity-100
+	}
+	.post-form-image img {
+		@apply rounded-md
+	}
+	.post-form-image button {
+		@apply absolute items-center justify-center top-4 right-4 w-8 h-8 rounded-full text-sm font-bold leading-none cursor-pointer shadow-md
+		bg-zinc-200 hover:bg-zinc-400 border-zinc-400
+		dark:bg-zinc-800 dark:hover:bg-zinc-600 dark:border-zinc-600 border
+		text-zinc-700 dark:text-zinc-300;
 	}
 	.post-form-submit-button {
 		@apply box-border rounded-lg h-10 m-4 w-[-moz-available] w-[-webkit-fill-available] font-semibold text-[15px]

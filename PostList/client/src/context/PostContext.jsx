@@ -13,12 +13,17 @@ export const PostsContext = createContext();
 export const usePosts = () => useContext(PostsContext);
 
 export const PostProvider = ({ children }) => {
-	const [posts, setPosts] = useState([]);
 
+	// posts list State and Effect func
+	const [posts, setPosts] = useState([]);
 	useEffect(() => {
 		getPosts();
 	}, []);
 
+	// Backgrounds List State
+	const [backgrounds] = useState(backgroundsData);
+
+	// Request API functions
 	const getPosts = async () => {
 		const { data } = await getPostsRequest();
 		setPosts(data);
@@ -30,8 +35,8 @@ export const PostProvider = ({ children }) => {
 	};
 
 	const createPost = async (post) => {
-		const { data } = await createPostRequest(post);
-		// setPosts([...posts, data]);
+		await createPostRequest(post);
+		await getPosts();
 	};
 
 	const deletePost = async (id) => {
@@ -41,7 +46,7 @@ export const PostProvider = ({ children }) => {
 
 	const updatePost = async (id, post) => {
 		await updatePostRequest(id, post);
-		// getPosts();
+		await getPosts();
 	};
 
 	const toogleLike = async (post) => {
@@ -51,12 +56,11 @@ export const PostProvider = ({ children }) => {
 		setPosts([...posts]);
 	};
 
-	const [backgrounds] = useState(backgroundsData);
-
 	return (
 		<PostsContext.Provider
 			value={{
 				posts,
+				setPosts,
 				backgrounds,
 				getPosts,
 				getPost,

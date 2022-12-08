@@ -27,7 +27,7 @@ const PostCard = ({ post }) => {
 		return <p className="post-title">{post.title}</p>;
 	};
 	const handleImage = () => {
-		if (!post.image) return;
+		if (!post?.image?.public_id) return;
 
 		return (
 			<figure className="post-image">
@@ -47,8 +47,17 @@ const PostCard = ({ post }) => {
 						className="button-primary"
 						onClick={() => {
 							toast.dismiss(t.id);
-							deletePost(post._id);
-							toast.success('Deleted', { position: 'top-center' });
+							toast.promise(
+								deletePost(post._id), 
+								{
+									loading: 'Saving...',
+									success: <b>Deleted!</b>,
+									error: <b>Delete failed.</b>,
+								},
+								{ 
+									position: 'top-center'
+								}
+							);
 						}}
 					>
 						Accept

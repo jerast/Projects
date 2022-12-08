@@ -6,7 +6,8 @@ const getError = (response, error) =>
 	response.status(500).json({
 		info: 'Something goes wrong with controllers',
 		message: error.message,
-	});
+		log: error,
+});
 
 export const getPosts = async (request, response) => {
 	try {
@@ -31,7 +32,6 @@ export const getPost = async (request, response) => {
 
 export const createPost = async (request, response) => {
 	try {
-		const { title, titleBg } = request.body;
 		let image;
 
 		if (request.files?.image) {
@@ -45,25 +45,33 @@ export const createPost = async (request, response) => {
 			};
 		}
 
-		const newPost = new Post({ title, image, titleBg });
+		const newPost = new Post({ ...request.body, image });
 		await newPost.save();
 
 		response.json(newPost);
 	} catch (error) {
-		console.log(error);
 		getError(response, error);
 	}
 };
 
 export const updatePost = async (request, response) => {
 	try {
-		let { title, titleBg, like } = request.body;
+		let image;
 
-		if (like === undefined) titleBg = titleBg || 0;
+		if (request.files?.image) {
+			const { public_id, secure_url } = await uploadImage(request.files.image.tempFilePath);
+
+			await fs.remove(request.files.image.tempFilePath);
+
+			image = {
+				url: secure_url,
+				public_id,
+			};
+		}
 
 		const updatedPost = await Post.findByIdAndUpdate(
 			request.params.id,
-			{ title, titleBg, like },
+			{...request.body, image},
 			{ new: true }
 		);
 
