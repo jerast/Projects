@@ -6,19 +6,24 @@ const postSquema = new mongoose.Schema({
 		trim: true,
 	},
 	image: {
-		url: String,
-		public_id: String,
+		url: {
+			type: String,
+		},
+		public_id: {
+			type: String,
+		},
 	},
 	titleBg: {
 		type: Number,
+		default: 0,
 	},
 	like: {
-		default: false,
 		type: Boolean,
+		default: false,
 	},
 	date: {
-		default: new Date(),
 		type: Date,
+		default: new Date(),
 	},
 });
 

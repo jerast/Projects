@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom';
 import { BsMoonStarsFill, BsPlusLg } from 'react-icons/bs';
+import { useTheme } from '../context/ThemeContext';
+
+
 const Header = () => {
-	const handleToogleDark = () => document.body.classList.toggle('dark');
+	const { toogleTheme } = useTheme();
+
+	const handleToogleDark = () => toogleTheme();
 
 	return (
 		<header className="header">

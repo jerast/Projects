@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
 	plugins: [react()],
 	// base: '/PostList/',
-	// server: {
+	server: {
+		// host: true,
 	// 	proxy: {
 	// 		'/': {
 	// 			target: 'http://localhost:4000/api',
@@ -13,5 +14,5 @@ export default defineConfig({
 	// 			secure: false,
 	// 		},
 	// 	},
-	// },
+	},
 });

@@ -1,3 +1,4 @@
+import { ThemeProvider } from './context/ThemeContext';
 import { PostProvider } from './context/PostContext';
 import { PostList, PostForm, NotFound } from './pages/App';
 import { Routes, Route } from 'react-router-dom';
@@ -10,8 +11,10 @@ const App = () => {
 	return (
 		<main className="main">
 			{/* <Modal/> */}
-			<Header />
-			<Sidebar />
+			<ThemeProvider>
+				<Header />
+				<Sidebar />
+			</ThemeProvider>
 			<section className="page-container">
 				<PostProvider>
 					<Routes>
