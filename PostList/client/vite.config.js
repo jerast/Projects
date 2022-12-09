@@ -6,7 +6,7 @@ export default defineConfig({
 	plugins: [react()],
 	// base: '/PostList/',
 	server: {
-		// host: true,
+	// 	host: true,
 	// 	proxy: {
 	// 		'/': {
 	// 			target: 'http://localhost:4000/api',

@@ -1,41 +1,44 @@
 import { usePosts } from '../context/PostContext';
-import { BsPencil, BsTrash, BsChat, BsReply } from 'react-icons/bs';
-import { AiTwotoneLike, AiOutlineLike } from 'react-icons/ai';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { BsPencil, BsTrash, BsChat, BsReply } from 'react-icons/bs';
+import { AiTwotoneLike, AiOutlineLike } from 'react-icons/ai';
 
 const PostCard = ({ post }) => {
-	const { deletePost, toogleLike, backgrounds } = usePosts();
+	const { getPost, deletePost, toogleLike, backgrounds } = usePosts();
+
+	const [postContent, setPostContent] = useState({});
 
 	const handleTitle = () => {
-		if (!post.title) return;
+		if (!postContent.title) return;
 
-		if (post.titleBg)
+		if (postContent.titleBg)
 			return (
 				<div className="post-title-bg">
-					<img src={backgrounds[post.titleBg - 1].url} alt="" />
+					<img src={backgrounds[postContent.titleBg - 1].url} alt="" />
 					<span
 						className={
-							backgrounds[post.titleBg - 1].dark ? 'text-zinc-200' : 'text-zinc-700'
+							backgrounds[postContent?.titleBg - 1]?.dark ? 'text-zinc-200' : 'text-zinc-700'
 						}
 					>
-						{post.title}
+						{postContent.title}
 					</span>
 				</div>
 			);
 
-		return <p className="post-title">{post.title}</p>;
+		return <p className="post-title">{postContent.title}</p>;
 	};
 	const handleImage = () => {
-		if (!post?.image?.public_id) return;
+		if (!postContent?.image?.public_id) return;
 
 		return (
-			<figure className="post-image">
-				<img src={post.image.url} alt="" />
+			<figure className={`post-image`}>
+				<img src={postContent.image.url} alt="" />
 			</figure>
 		);
 	};
-	const handleDelete = () => {
+	const handleDeletePost = () => {
 		toast((t) => (
 			<div className="toast">
 				<p className="toast-message">Do you want to delete?</p>
@@ -48,14 +51,14 @@ const PostCard = ({ post }) => {
 						onClick={() => {
 							toast.dismiss(t.id);
 							toast.promise(
-								deletePost(post._id), 
+								deletePost(postContent._id),
 								{
-									loading: 'Saving...',
+									loading: 'Deleting...',
 									success: <b>Deleted!</b>,
 									error: <b>Delete failed.</b>,
 								},
-								{ 
-									position: 'top-center'
+								{
+									position: 'top-center',
 								}
 							);
 						}}
@@ -66,6 +69,15 @@ const PostCard = ({ post }) => {
 			</div>
 		));
 	};
+	const handleToogleLike = async () => {
+		await toogleLike(postContent);
+		setPostContent({ ...postContent, like: !postContent.like });
+	};
+
+	useEffect(() => {
+		if (postContent?._id) return;
+		(async () => setPostContent(await getPost(post)))();
+	});
 
 	return (
 		<div className="post">
@@ -73,13 +85,13 @@ const PostCard = ({ post }) => {
 				<img src="/profile/profile1.jpg" alt="" />
 				<p>
 					<span>José Rodríguez Romero</span>
-					<span>{new Date(post.date).toDateString().replace(' ', ', ')}</span>
+					<span>{new Date(postContent.date).toDateString().replace(' ', ', ')}</span>
 				</p>
 				<div className="post-buttons">
-					<Link to={`/edit/${post._id}`}>
+					<Link to={`/edit/${postContent._id}`}>
 						<BsPencil />
 					</Link>
-					<button onClick={handleDelete}>
+					<button onClick={handleDeletePost}>
 						<BsTrash />
 					</button>
 				</div>
@@ -88,8 +100,8 @@ const PostCard = ({ post }) => {
 			{handleImage()}
 			<hr className="post-division" />
 			<div className="post-interaction">
-				<button onClick={() => toogleLike(post)}>
-					{post.like ? <AiTwotoneLike className="liked" /> : <AiOutlineLike />}
+				<button onClick={handleToogleLike}>
+					{postContent.like ? <AiTwotoneLike className="liked" /> : <AiOutlineLike />}
 					<span>Like</span>
 				</button>
 				<button>

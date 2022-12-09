@@ -10,7 +10,6 @@ import Sidebar from './components/Sidebar';
 const App = () => {
 	return (
 		<main className="main">
-			{/* <Modal/> */}
 			<ThemeProvider>
 				<Header />
 				<Sidebar />
@@ -24,8 +23,8 @@ const App = () => {
 						<Route path="*" element={<NotFound />} />
 					</Routes>
 				</PostProvider>
+				<Toaster position="bottom-left" reverseOrder={true} />
 			</section>
-			<Toaster position="bottom-left" reverseOrder={true} />
 		</main>
 	);
 };

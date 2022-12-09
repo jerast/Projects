@@ -1,12 +1,12 @@
-import { usePosts } from '../context/PostContext';
 import PostCard from '../components/PostCard';
+import { usePosts } from '../context/PostContext';
 
 export const PostList = () => {
-	const { posts } = usePosts();
+	const { base } = usePosts();
 
-	if (posts.length === 0)
-		return <h1 className='page-title'>There are no posts</h1>
-
-	return [...posts].reverse().map((post) => <PostCard post={post} key={post._id} />);
+	return base?.Base?.length === undefined ? (
+		<h1>No posts in DB</h1>
+	) : (
+		[...base.Base].reverse().map((post) => <PostCard post={post} key={post} />)
+	);
 };
- 

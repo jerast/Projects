@@ -60,9 +60,7 @@ export const updatePost = async (request, response) => {
 
 		if (request.files?.image) {
 			const { public_id, secure_url } = await uploadImage(request.files.image.tempFilePath);
-
 			await fs.remove(request.files.image.tempFilePath);
-
 			image = {
 				url: secure_url,
 				public_id,

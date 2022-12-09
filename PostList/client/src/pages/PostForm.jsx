@@ -140,7 +140,7 @@ export const PostForm = () => {
 										alt=""
 									/>
 									<button
-										className={values?.image?.name && !isSubmitting? 'flex' : 'hidden'}
+										className={values?.image?.name && !isSubmitting ? 'flex' : 'hidden'}
 										type="button"
 										onClick={() => {
 											setImageUrl(''), (values.image = undefined);

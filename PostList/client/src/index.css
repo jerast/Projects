@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer components {
-	* {
+	/* * {
 		@apply ease-in-out duration-150;
-	}
+	} */
 	.main {
 		@apply relative grid grid-cols-1 md:grid-cols-2-min grid-rows-2-min
         bg-zinc-300 dark:bg-zinc-900;
@@ -68,6 +68,14 @@
 	.page-title {
 		@apply font-bold text-4xl my-4
         text-zinc-700 dark:text-zinc-300;
+	}
+
+	.post-loading {
+		@apply w-full md:max-w-[680px] min-h-[300px] md:rounded-xl shadow-md
+		bg-zinc-200 dark:bg-zinc-800; 
+	}
+	.post-loading-item {
+		@apply bg-zinc-300 dark:bg-zinc-700
 	}
 
 	.post {

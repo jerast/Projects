@@ -6,6 +6,11 @@ import {
 	deletePostRequest,
 	updatePostRequest,
 } from '../api/posts.api';
+import {
+	getBaseRequest,
+	createBaseRequest,
+	updateBaseRequest,
+} from '../api/base.api';
 import { titleBgData as backgroundsData } from '../api/titleBg.data';
 
 export const PostsContext = createContext();
@@ -14,60 +19,66 @@ export const usePosts = () => useContext(PostsContext);
 
 export const PostProvider = ({ children }) => {
 
-	// posts list State and Effect func
-	const [posts, setPosts] = useState([]);
-	useEffect(() => {
-		getPosts();
-	}, []);
-
+	// Post Base State func
+	const [base, setBase] = useState([])
+	
 	// Backgrounds List State
 	const [backgrounds] = useState(backgroundsData);
 
-	// Request API functions
-	const getPosts = async () => {
-		const { data } = await getPostsRequest();
-		setPosts(data);
+	useEffect(() => {
+		getBase();
+	}, [])
+
+	const getBase = async () => {
+		const { data } = await getBaseRequest();
+		setBase( data );
 	};
+
+	// const createBase = async () => {
+	// 	const { data } = await createBaseRequest();
+	// 	return data;
+	// };
+
+	const updateBase = async (Base) => {
+		await updateBaseRequest(base.Base._id, { Base });
+		await getBase();
+	}
 
 	const getPost = async (id) => {
 		const { data } = await getPostRequest(id);
-		return data;
+		return await data;
 	};
 
 	const createPost = async (post) => {
-		await createPostRequest(post);
-		await getPosts();
+		const { data } = await createPostRequest(post);
+		await updateBase([...base.Base, data._id]);
 	};
 
 	const deletePost = async (id) => {
 		await deletePostRequest(id);
-		setPosts([...posts.filter((post) => post._id !== id)]);
+		await updateBase([...base.Base].filter(item => item !== id ));
 	};
 
 	const updatePost = async (id, post) => {
 		await updatePostRequest(id, post);
-		await getPosts();
 	};
 
 	const toogleLike = async (post) => {
 		await updatePostRequest(post._id, { like: !post.like });
-
-		posts.map((item) => (item._id === post._id ? (item.like = !item.like) : item.like));
-		setPosts([...posts]);
 	};
 
 	return (
 		<PostsContext.Provider
 			value={{
-				posts,
-				setPosts,
-				backgrounds,
-				getPosts,
+				base,
+				setBase,
+				getBase,
 				getPost,
 				createPost,
 				deletePost,
 				updatePost,
 				toogleLike,
+				backgrounds,
 			}}
 		>
 			{children}
