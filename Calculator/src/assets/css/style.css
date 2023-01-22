@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  font-size: 62.5%;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #222;
+}
+
+.calc {
+  display: grid;
+  grid-template-rows: 8% 15% 70%;
+  place-content: end;
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 700px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #333;
+}
+.calc__history, .calc__display {
+  width: 100%;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  text-align: right;
+  cursor: default;
+  background-color: transparent;
+  color: #e9e9ed;
+  padding: 0 20px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.calc__history {
+  font-size: 1.2rem;
+  color: #7d7d7d;
+}
+.calc__display {
+  font-size: 3rem;
+  font-weight: 600;
+}
+.calc__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: "func func func func" "numb numb numb oper" "numb numb numb oper" "numb numb numb oper" "numb numb numb oper";
+  width: 100%;
+  border-top-right-radius: 20px;
+  background-color: #2a2a2a;
+  overflow: hidden;
+}
+.calc__numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-area: numb;
+  width: 100%;
+  border-top-right-radius: 20px;
+  background-color: #202020;
+  overflow: hidden;
+}
+.calc__button {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #e9e9ed;
+  transition: all 0.15s ease;
+}
+.calc__button:hover {
+  background-color: #393939;
+}
+.calc__button:active {
+  background-color: #555;
+}
+.calc__button--equals {
+  background-color: royalblue;
+  border-top-right-radius: 20px;
+}
+.calc__button--operators {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+.calc__button--clear {
+  color: rgb(253, 72, 72);
+}/*# sourceMappingURL=style.css.map */

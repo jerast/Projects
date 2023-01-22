@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="shortcut icon" href="./assets/images/favicon(32x32).png" type="image/x-icon">
+     <title>myCalc</title>
+     <link rel="stylesheet" href="./assets/css/style.css">
+     <script defer src="./assets/js/index.js"></script>
+</head>
+<body>
+     <main class="main">
+          <section class="calc">
+               <input id="calcHistory" class="calc__history" type="text" readonly value="">
+               <input id="calcDisplay" class="calc__display" type="text" readonly value="0">
+               <div class="calc__buttons">
+                    <button id="calcClear" class="calc__button calc__button--clear" type="button">C</button>
+                    <button id="calcPlusMinus" class="calc__button calc__button--operators" type="button">&pm;</button>
+                    <button id="calcPercent" class="calc__button" type="button" data-symbol="%">&percnt;</button>
+                    <button id="calcBackspace" class="calc__button" type="button">←</button>
+                    <button id="calcDivision" class="calc__button calc__button--operators" type="button" data-symbol="÷">&divide;</button>
+                    <button id="calcTimes" class="calc__button calc__button--operators" type="button" data-symbol="×">&times;</button>
+                    <button id="calcMinus" class="calc__button calc__button--operators" type="button" data-symbol="−">&minus;</button>
+                    <button id="calcPlus" class="calc__button calc__button--operators" type="button" data-symbol="+">&plus;</button>
+                    <div class="calc__numbers">
+                         <button id="calcNum7" class="calc__button" type="button">7</button>
+                         <button id="calcNum8" class="calc__button" type="button">8</button>
+                         <button id="calcNum9" class="calc__button" type="button">9</button>
+                         <button id="calcNum4" class="calc__button" type="button">4</button>
+                         <button id="calcNum5" class="calc__button" type="button">5</button>
+                         <button id="calcNum6" class="calc__button" type="button">6</button>
+                         <button id="calcNum1" class="calc__button" type="button">1</button>
+                         <button id="calcNum2" class="calc__button" type="button">2</button>
+                         <button id="calcNum3" class="calc__button" type="button">3</button>
+                         <button id="calcEquals" class="calc__button calc__button--equals" type="button">&equals;</button>
+                         <button id="calcZero" class="calc__button" type="button">0</button>
+                         <button id="calcDecimal" class="calc__button" type="button">.</button>
+                    </div>
+               </div>
+          </section>
+     </main>
+</body>
+</html>

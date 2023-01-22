@@ -86,7 +86,6 @@ const PostCard = ({ post }) => {
 			</div>
 			{handleTitle()}
 			{handleImage()}
-			<hr className="post-division" />
 			<div className="post-interaction">
 				<button onClick={() => toogleLike(post)}>
 					{post.like ? <AiTwotoneLike className="liked" /> : <AiOutlineLike />}

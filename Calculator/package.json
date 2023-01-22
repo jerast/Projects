@@ -1,0 +1,27 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "Web Calculator",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerast/calculator.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Sass",
+    "HTML5"
+  ],
+  "author": "jerast <jerast@github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jerast/calculator/issues"
+  },
+  "homepage": "https://github.com/jerast/calculator#readme",
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}
