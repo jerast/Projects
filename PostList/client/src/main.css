@@ -119,11 +119,9 @@
 	.post-image img {
 		@apply min-h-full max-h-[625px];
 	}
-	.post-division {
-		@apply border-zinc-300 dark:border-zinc-700;
-	}
 	.post-interaction {
-		@apply flex px-4 py-[5px] gap-1;
+		@apply flex px-4 py-[5px] gap-1 border-t
+		border-zinc-300 dark:border-zinc-700;
 	}
 	.post-interaction button {
 		@apply flex justify-center items-center flex-grow h-10 gap-[6px] rounded-lg active:scale-95
@@ -146,7 +144,7 @@
 	}
 
 	.post-form {
-		@apply flex flex-col w-full md:max-w-[500px] h-post-form-60 md:h-min md:min-h-[428px] md:rounded-xl shadow-md
+		@apply flex flex-col w-full md:max-w-[500px] md:h-post-form-60 md:h-min md:min-h-[428px] md:rounded-xl shadow-md
 		bg-zinc-200 dark:bg-zinc-800;
 	}
 	.post-form-header {
