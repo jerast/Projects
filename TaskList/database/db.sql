@@ -1,5 +1,5 @@
 -- create `tasksdb` database
-CREATE DATABASE IF NOT EXISTS 'tasksdb';
+CREATE DATABASE IF NOT EXISTS tasksdb;
 
 USE tasksdb;
 
