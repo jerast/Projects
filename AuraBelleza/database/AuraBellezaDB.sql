@@ -161,21 +161,21 @@ USE AuraBellezaDB;
 		("ABC3", "USER 3", "user3@gmail.com", 3156779809);
 	
 	INSERT INTO products (name, reference, description, category_id, retail_prize, wholesale_prize, image) VALUES
-		("Paleta Polígono Regular", "9628-002", "Estuche sombra pequeño - cinco tonos pasteles - incluye aplicador doble punta", 1, 4500, 4000, "https:$$static.wixstatic.com/media/cd4fc5_64cf10cd0fb5401488bbba99bfa94594~mv2.jpg"),
-		("Mini Paleta 4 Tonos", "9719-E2", "Estuche de sombra pequeño: 4 tonos satinados y matte - incluye aplicador", 1, 2500, 2000, "https:$$static.wixstatic.com/media/cd4fc5_64cf10cd0fb5401488bbba99bfa94594~mv2.jpg"),
-		("Make p Kit", "BL523", "Kit paleta 48 tonos de sombra entre tonos fuerte y tierra tipo matte y satinados", 1, 30000, 27000, "https:$$static.wixstatic.com/media/cd4fc5_e24d940ebb314048b81c020dee208f29~mv2.jpg"),
-		("PaletaU 12 tonos", "BR315-01", "Paleta de sombras pequeña: 12 tonos neutros satinado y matte - incluye aplicador", 1, 3500, 3000, "https:$$static.wixstatic.com/media/cd4fc5_7036035afd594dceb6fba9f5447d4ac6~mv2.jpeg"),
-		("Lip Balm", "JBLLB0008", "Bálsamo de labios especial para proteger tus labios contra el frío, el viento y el clima seco", 2, 3500, 3000, "https:$$static.wixstatic.com/media/27b655_d34b95db265c472099826083d9254303~mv2.jpg"),
-		("Strawberry Lip Balm", "JBLLB0004", "Bálsamo labial hidrata y suaviza - 2 tonos con aroma y sabor. Forma de fresa", 2, 2500, 2200, "https:$$static.wixstatic.com/media/cd4fc5_8bdd804e032240108c918f605d8ede5b~mv2.jpg"),
-		("Kissing Smell Fruit Lip Gloss", "JBLLG0237", "Lip gloss en rolong de 6 tonos y aromas deliciosos diferentes", 2, 1800, 1500, "https:$$static.wixstatic.com/media/cd4fc5_ffdec78f7ec04f8eae657be29eb56a50~mv2.jpg"),
-		("Lipstick Vitamin-E", "JBLLS0116", "Labial matte animal print surtido con nuestros 8 mejores tonos y con Vitamina E", 3, 1500, 1200, "https:$$static.wixstatic.com/media/cd4fc5_3a57ecf69caf4fd8bad67cdf814bf0f1~mv2.jpg"),
-		("Matte Lip Gloss", "JBLLG0229", "Labial matte de larga duración - 12 tonos diferentes en empaque individual", 3, 1500, 1200, "https:$$static.wixstatic.com/media/cd4fc5_3085fcd4b096454f81c1be9e4aec83f7~mv2.jpeg"),
-		("Fantastick Lipstick No. 29", "JBLLG0230", "Labial matte de larga duración - 12 tonos diferentes en empaque individual", 3, 3200, 2700, "https:$$static.wixstatic.com/media/cd4fc5_51ff47269053406c881f5b1c9d08bec7~mv2.jpeg"),
-		("Charm Your Lips", "GD0067", "Labial mágico de tonos naturales dando un toque de ternura y sensualidad", 3, 2500, 2000, "https:$$static.wixstatic.com/media/cd4fc5_9e938d953b364d839cb4d93e733ee6b1~mv2.jpeg"),
-		("Esmalte Unik-Colours Calcio", "NP167-1", "Esmalte base de calcio", 4, 5000, 4500, "https:$$static.wixstatic.com/media/27b655_2b69bc86f0de4f838b26645bb2efca7d~mv2.jpg"),
-		("Esmalte Unik-Colours Keratina", "NP167-2", "Esmalte base de keratina", 4, 5000, 4500, "https:$$static.wixstatic.com/media/27b655_382247ef77114dd78686c916fc1a5510~mv2.jpg"),
-		("Esmalte Unik-Colours Ajo-Limón", "NP167-3", "Esmalte base de Ajo-Limón", 4, 5000, 4500, "https:$$static.wixstatic.com/media/27b655_2b13b150ff244e93bbcb8d519f37ff45~mv2.jpg"),
-		("Esmalte Unik-Colours Brillo Secante", "NP167-4", "Esmalte de brillo secante que ayuda a endurecer las uñas", 4, 4000, 3500, "https:$$static.wixstatic.com/media/27b655_160a38d553b94987a6fde81396ee75a9~mv2.jpg");
+		("Paleta Polígono Regular", "9628-002", "Estuche sombra pequeño - cinco tonos pasteles - incluye aplicador doble punta", 1, 4500, 4000, "https://static.wixstatic.com/media/cd4fc5_64cf10cd0fb5401488bbba99bfa94594~mv2.jpg"),
+		("Mini Paleta 4 Tonos", "9719-E2", "Estuche de sombra pequeño: 4 tonos satinados y matte - incluye aplicador", 1, 2500, 2000, "https://static.wixstatic.com/media/cd4fc5_64cf10cd0fb5401488bbba99bfa94594~mv2.jpg"),
+		("Make p Kit", "BL523", "Kit paleta 48 tonos de sombra entre tonos fuerte y tierra tipo matte y satinados", 1, 30000, 27000, "https://static.wixstatic.com/media/cd4fc5_e24d940ebb314048b81c020dee208f29~mv2.jpg"),
+		("PaletaU 12 tonos", "BR315-01", "Paleta de sombras pequeña: 12 tonos neutros satinado y matte - incluye aplicador", 1, 3500, 3000, "https://static.wixstatic.com/media/cd4fc5_7036035afd594dceb6fba9f5447d4ac6~mv2.jpeg"),
+		("Lip Balm", "JBLLB0008", "Bálsamo de labios especial para proteger tus labios contra el frío, el viento y el clima seco", 2, 3500, 3000, "https://static.wixstatic.com/media/27b655_d34b95db265c472099826083d9254303~mv2.jpg"),
+		("Strawberry Lip Balm", "JBLLB0004", "Bálsamo labial hidrata y suaviza - 2 tonos con aroma y sabor. Forma de fresa", 2, 2500, 2200, "https://static.wixstatic.com/media/cd4fc5_8bdd804e032240108c918f605d8ede5b~mv2.jpg"),
+		("Kissing Smell Fruit Lip Gloss", "JBLLG0237", "Lip gloss en rolong de 6 tonos y aromas deliciosos diferentes", 2, 1800, 1500, "https://static.wixstatic.com/media/cd4fc5_ffdec78f7ec04f8eae657be29eb56a50~mv2.jpg"),
+		("Lipstick Vitamin-E", "JBLLS0116", "Labial matte animal print surtido con nuestros 8 mejores tonos y con Vitamina E", 3, 1500, 1200, "https://static.wixstatic.com/media/cd4fc5_3a57ecf69caf4fd8bad67cdf814bf0f1~mv2.jpg"),
+		("Matte Lip Gloss", "JBLLG0229", "Labial matte de larga duración - 12 tonos diferentes en empaque individual", 3, 1500, 1200, "https://static.wixstatic.com/media/cd4fc5_3085fcd4b096454f81c1be9e4aec83f7~mv2.jpeg"),
+		("Fantastick Lipstick No. 29", "JBLLG0230", "Labial matte de larga duración - 12 tonos diferentes en empaque individual", 3, 3200, 2700, "https://static.wixstatic.com/media/cd4fc5_51ff47269053406c881f5b1c9d08bec7~mv2.jpeg"),
+		("Charm Your Lips", "GD0067", "Labial mágico de tonos naturales dando un toque de ternura y sensualidad", 3, 2500, 2000, "https://static.wixstatic.com/media/cd4fc5_9e938d953b364d839cb4d93e733ee6b1~mv2.jpeg"),
+		("Esmalte Unik-Colours Calcio", "NP167-1", "Esmalte base de calcio", 4, 5000, 4500, "https://static.wixstatic.com/media/27b655_2b69bc86f0de4f838b26645bb2efca7d~mv2.jpg"),
+		("Esmalte Unik-Colours Keratina", "NP167-2", "Esmalte base de keratina", 4, 5000, 4500, "https://static.wixstatic.com/media/27b655_382247ef77114dd78686c916fc1a5510~mv2.jpg"),
+		("Esmalte Unik-Colours Ajo-Limón", "NP167-3", "Esmalte base de Ajo-Limón", 4, 5000, 4500, "https://static.wixstatic.com/media/27b655_2b13b150ff244e93bbcb8d519f37ff45~mv2.jpg"),
+		("Esmalte Unik-Colours Brillo Secante", "NP167-4", "Esmalte de brillo secante que ayuda a endurecer las uñas", 4, 4000, 3500, "https://static.wixstatic.com/media/27b655_160a38d553b94987a6fde81396ee75a9~mv2.jpg");
 
 	INSERT INTO orders (user_id, date, total_prize, state_id, wholesale) VALUES
 		("ABC1", "2022-06-17 19:57:14", 8500, 1, false),
