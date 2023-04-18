@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'http://localhost:4000/api';
+const API = 'http://192.168.0.252:4000/api';
 
 export const getTasksRequest = async () =>
     await axios.get(`${API}/tasks`);
