@@ -1,20 +1,11 @@
-import { pool } from '../db.js';
-
-const getError = (response, error) =>
-	response.status(500).json({
-		info: 'Something goes wrong with controllers',
-		message: error.message,
-		log: error,
-});
+import { getError } from '../middlewares/getError.js';
+import Product from '../models/products.models.js';
 
 export const getProducts = async (request, response) => {
 	try {
-		const [ rows ] = await pool.query(
-			`CALL get_products( NULL )`
-		);
-		const products = rows[0];
-		
-		response.json({
+		const products = await Product.find();
+
+		return response.json({
 			ok: true,
 			products
 		});
@@ -25,14 +16,19 @@ export const getProducts = async (request, response) => {
 };
 
 export const getProduct = async (request, response) => {
-	const { id } = request.params;
 	try {
-		const [ rows ] = await pool.query(
-			`CALL get_products( ${ id } )`
-		);
-		const product = rows[0][0];
+		const { id } = request.params;
 		
-		response.json({
+		const product = await Product.findById( id );
+
+		if ( !product ) {
+			return response.status(404).json({
+				ok: false,
+				message: `Product not found`,
+			});
+		}
+
+		return response.json({
 			ok: true,
 			product
 		});
@@ -42,23 +38,97 @@ export const getProduct = async (request, response) => {
 	}
 };
 
-export const createProduct = (request, response) => {
-	return response.json({
-		ok: true,
-		message: 'createProduct',
-	});
+export const createProduct = async (request, response) => {
+	try {
+		const product = new Product({ ...request.body });
+		await product.save();
+
+		return response.json({
+			ok: true,
+			product
+		});
+	}
+	catch (error) {
+		getError(response, error);
+	}
 };
 
-export const updateProduct = (request, response) => {
-	return response.json({
-		ok: true,
-		message: 'updateProduct',
-	});
+export const updateProduct = async (request, response) => {
+	try {
+		const { id } = request.params;
+
+		const product = await Product.findById( id );
+
+		if ( !product ) {
+			return response.status(404).json({
+				ok: false,
+				message: `Product not found`,
+			});
+		}
+
+		const updatedProduct = await Product.findByIdAndUpdate( id, { ...request.body }, { new: true } );
+
+		return response.json({
+			ok: true,
+			product: updatedProduct,
+		});
+	}
+	catch (error) {
+		getError(response, error);
+	}
 };
 
-export const deleteProduct = (request, response) => {
-	return response.json({
-		ok: true,
-		message: 'deleteProduct',
-	});
+export const toogleProduct = async (request, response) => {
+	try {
+		const { id } = request.params;
+
+		const product = await Product.findById( id );
+		
+		if ( !product ) {
+			return response.status(404).json({
+				ok: false,
+				message: `Product not found`,
+			});
+		}
+
+		const toogledProduct = { 
+			...product._doc, 
+			state: !product._doc.state 
+		}
+
+		const updatedProduct = await Product.findByIdAndUpdate( id, toogledProduct, { new: true } );
+
+		return response.json({
+			ok: true,
+			product: updatedProduct
+		});
+	}
+	catch (error) {
+		getError(response, error);
+	}
+};
+
+export const deleteProduct = async (request, response) => {
+	try {
+		const { id } = request.params;
+
+		const product = await Product.findById( id );
+		
+		if ( !product ) {
+			return response.status(404).json({
+				ok: false,
+				message: `Product not found`,
+			});
+		}
+
+		await Product.findByIdAndDelete( id );
+
+		return response.json({
+			ok: true,
+			message: 'Product deleted',
+		});
+	}
+	catch (error) {
+		getError(response, error);
+	}
 };
