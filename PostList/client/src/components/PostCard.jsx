@@ -3,6 +3,7 @@ import { BsPencil, BsTrash, BsChat, BsReply } from 'react-icons/bs';
 import { AiTwotoneLike, AiOutlineLike } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { resize } from '../helpers/resizers';
 
 const PostCard = ({ post }) => {
 	const { deletePost, toogleLike, backgrounds } = usePosts();
@@ -31,7 +32,7 @@ const PostCard = ({ post }) => {
 
 		return (
 			<figure className="post-image">
-				<img src={post.image.url} alt="" />
+				<img src={ resize(post.image.url, 800)  } alt={ post._id } />
 			</figure>
 		);
 	};
