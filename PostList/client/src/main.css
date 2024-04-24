@@ -144,7 +144,7 @@
 	}
 
 	.post-form {
-		@apply flex flex-col w-full md:max-w-[500px] md:h-post-form-60 md:h-min md:min-h-[428px] md:rounded-xl shadow-md
+		@apply flex flex-col w-full md:max-w-[500px] md:h-post-form-60 md:min-h-[428px] md:rounded-xl shadow-md
 		bg-zinc-200 dark:bg-zinc-800;
 	}
 	.post-form-header {
@@ -228,7 +228,7 @@
 		text-zinc-700 dark:text-zinc-300;
 	}
 	.post-form-submit-button {
-		@apply box-border rounded-lg h-10 m-4 w-[-moz-available] w-[-webkit-fill-available] font-semibold text-[15px]
+		@apply box-border rounded-lg h-10 m-4 w-[-moz-available] font-semibold text-[15px]
 		text-gray-200 dark:text-gray-300
 		bg-violet-600 dark:bg-violet-800 
 		enabled:hover:bg-violet-600 enabled:dark:hover:bg-violet-700 enabled:cursor-pointer
