@@ -1,0 +1,626 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+	/* Principal Components */
+
+	.Header {
+		@apply bg-white;
+	}
+
+	.NotifyBar {
+		@apply bg-violet-700 h-7 md:h-9 2xl:h-10 flex justify-center items-center text-[11px] md:text-[13px] 2xl:text-sm text-white;
+	}
+	.NotifyBar .primary {
+		@apply font-bold uppercase;
+	}
+	.NotifyBar .link {
+		@apply underline mx-2 normal-case;
+	}
+
+	.Navbar {
+		@apply h-24 sm:h-28 2xl:h-32 mx-12 md:mx-16 lg:mx-32 2xl:mx-60 flex items-center gap-8 xl:gap-20;
+	}
+	.Navbar__sidebar-button {
+		@apply xl:hidden text-2xl text-gray-500 hover:text-gray-800;
+	}
+	.Navbar__logo {
+		@apply flex-grow md:flex-grow-0 flex justify-center;
+	}
+	.Navbar__logo svg,
+	.Navbar__logo img {
+		@apply h-10 md:h-11 2xl:h-12 fill-gray-700;
+	}
+	.Navbar__nav {
+		@apply flex-grow hidden xl:flex justify-center lg:gap-8 2xl:gap-12;
+	}
+	.Navbar__nav a {
+		@apply text-gray-800 hover:text-violet-700 ease-in-out duration-100;
+	}
+	.Navbar__controls {
+		@apply flex gap-1 lg:gap-4 flex-grow-0 md:flex-grow xl:flex-grow-0 justify-end;
+	}
+	.Navbar__controls .Search {
+		@apply hidden md:flex max-w-[256px] 2xl:w-80;
+	}
+	.Navbar__controls > button {
+		@apply sm:h-11 sm:w-11 2xl:h-12 2xl:w-12 rounded-full hover:bg-gray-100 text-gray-700;
+	}
+	.Navbar__controls-cart {
+		@apply relative text-2xl flex justify-center items-center;
+	}
+	.Navbar__controls-login {
+		@apply relative hidden sm:flex
+	}
+	.Navbar__controls-login-button {
+		@apply relative w-full h-full flex justify-center items-center rounded-full text-[21px];
+	}
+	.Navbar__controls-login-button.logged {
+		@apply bg-violet-700 hover:bg-violet-600 text-white text-lg uppercase;
+	}
+	.Navbar__controls-login-dropdown {
+		@apply absolute w-52 xl:w-60 bg-white shadow-[0_10px_50px_rgba(0,0,0,0.1)] rounded-lg top-11 2xl:top-12 mt-2 right-0  z-10 px-8 py-4 flex flex-col 
+	}
+	.Navbar__controls-login-dropdown ul {
+		@apply py-2 xl:py-3
+	}
+	.Navbar__controls-login-dropdown ul:not(:last-child) {
+		@apply border-b 
+	}
+	.Navbar__controls-login-dropdown li {
+		@apply text-left text-sm text-gray-500 
+	}
+	.Navbar__controls-login-dropdown li > * {
+		@apply block py-2 xl:py-3 hover:text-gray-800 duration-150 ease-in-out
+	}
+	
+	.Navbar__notify {
+		@apply absolute flex h-3 w-3 -top-1 sm:top-2 -right-1 sm:right-2;
+	}
+	.Navbar__nofity-ping {
+		@apply absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75;
+	}
+	.Navbar__notify-icon {
+		@apply relative inline-flex rounded-full h-3 w-3 bg-red-500;
+	}
+
+	.Search {
+		@apply flex bg-gray-100 px-6 rounded-full mr-2 w-full;
+	}
+	.Search input {
+		@apply bg-transparent outline-none text-gray-700 w-full h-11;
+	}
+	.Search button {
+		@apply text-gray-400 text-xl;
+	}
+
+	.Main {
+		@apply grid mb-24 lg:mt-6 lg:mb-32 gap-20 flex-grow;
+	}
+	.Main--content {
+		@apply mx-12 md:mx-16 lg:mx-32 2xl:mx-60 flex flex-col gap-10;
+	}
+
+	.Breadcrumbs {
+		@apply flex flex-wrap gap-x-7 sm:gap-10 text-sm text-gray-700 mt-5 md:my-3;
+	}
+	.Breadcrumbs a {
+		@apply hover:text-violet-800;
+	}
+	.Breadcrumbs span {
+		@apply hidden md:block;
+	}
+	.Breadcrumbs > *:not(:first-child) {
+		@apply relative before:content-['>'] before:absolute before:w-7 sm:before:w-10 before:-left-7 sm:before:-left-10 before:text-center;
+	}
+
+	.Footer {
+		@apply bg-gray-100 px-20 lg:px-32 2xl:px-60 py-14 md:py-16 text-gray-500 flex flex-wrap gap-16 shadow-lg;
+	}
+	.Footer__main {
+		@apply flex flex-col items-start gap-4;
+	}
+	.Footer__logo {
+		@apply h-10 md:h-11 2xl:h-12 fill-violet-700 mb-2;
+	}
+	.Footer__caption {
+		@apply text-gray-400 text-lg;
+	}
+	.Footer__social-media {
+		@apply flex gap-6 text-xl;
+	}
+	.Footer__social-link {
+		@apply hover:text-violet-700;
+	}
+	.Footer__section {
+		@apply flex flex-wrap gap-20 flex-grow xl:justify-center;
+	}
+	.Footer__article {
+		@apply flex flex-col gap-3;
+	}
+	.Footer__title {
+		@apply text-gray-600 uppercase font-bold;
+	}
+	.Footer__payment-methods {
+		@apply flex gap-8 items-center;
+	}
+	.Footer__payment-methods svg {
+		@apply h-4;
+	}
+	.Footer__payment-methods svg:first-child {
+		@apply h-[0.75rem];
+	}
+	.Footer__payment-methods svg:last-child {
+		@apply h-[1.2rem];
+	}
+	.Footer__copyright {
+		@apply flex-grow w-full;
+	}
+
+	.Sidebar {
+		@apply fixed w-full h-screen top-0 z-10;
+	}
+	.Sidebar__backdrop {
+		@apply absolute -z-10 bg-black bg-opacity-40 w-full h-full;
+	}
+	.Sidebar__content {
+		@apply absolute flex flex-col bg-white left-0 h-full w-full sm:w-96 2xl:w-[30rem] overflow-y-auto py-12 px-14;
+	}
+	.Sidebar__header {
+		@apply flex justify-between sm:justify-between mb-10;
+	}
+	.Sidebar__header > *:nth-child(2) {
+		@apply block h-11 w-11
+	}
+	.Sidebar__close-button {
+		@apply text-2xl text-gray-500 hover:text-gray-800;
+	}
+	.Sidebar__group {
+		@apply flex flex-col gap-6 text-base text-gray-500 border-b py-10;
+	}
+	.Sidebar__group a {
+		@apply hover:text-violet-800;
+	}
+	.Sidebar__group:last-of-type {
+		@apply border-none mb-auto;
+	}
+	.Sidebar__logo {
+		@apply min-h-[28px] h-10 md:h-11 2xl:h-12 fill-violet-700;
+	}
+
+	.ShoppingCart {
+		@apply fixed w-full h-screen top-0 z-10;
+	}
+	.ShoppingCart__backdrop {
+		@apply absolute -z-10 bg-black bg-opacity-40 w-full h-full;
+	}
+	.ShoppingCart__content {
+		@apply absolute flex flex-col gap-8 md:gap-6 bg-white right-0 h-full w-full sm:w-[30rem] overflow-y-auto py-12 px-8;
+	}
+	.ShoppingCart__header {
+		@apply flex justify-between sm:flex-row-reverse font-bold text-2xl text-gray-700 lg:mb-8;
+	}
+	.ShoppingCart__close-button {
+		@apply text-2xl text-gray-500 hover:text-gray-800;
+	}
+	.ShoppingCart__confirm {
+		@apply border-y py-5 grid items-center;
+	}
+	.ShoppingCart__confirm p {
+		@apply flex items-center justify-center text-sm text-center whitespace-pre;
+	}
+	.ShoppingCart__confirm span {
+		@apply font-bold;
+	}
+	.ShoppingCart__confirm.discount p {
+		@apply font-bold text-blue-600;
+	}
+	.ShoppingCart__confirm button {
+		@apply flex items-center justify-between px-7 w-full font-bold text-xl h-20 bg-violet-700 hover:bg-violet-600 text-gray-100 rounded-2xl my-4;
+	}
+	.ShoppingCart__confirm.discount button {
+		@apply font-bold;
+	}
+	.ShoppingCart__confirm button p {
+		@apply grid items-center h-full;
+	}
+	.ShoppingCart__confirm.discount button p {
+		@apply grid items-center h-full;
+	}
+	.ShoppingCart__confirm button p span {
+		@apply text-gray-200 w-full;
+	}
+	.ShoppingCart__confirm button p span:first-of-type {
+		@apply text-xl text-opacity-100 no-underline place-self-end;
+	}
+	.ShoppingCart__confirm.discount button p span:first-of-type {
+		@apply text-opacity-60 text-sm line-through place-self-end;
+	}
+	.ShoppingCart__confirm button p span:last-of-type {
+		@apply text-opacity-60 text-sm line-through place-self-start;
+	}
+	.ShoppingCart__confirm.discount button p span:last-of-type {
+		@apply text-xl text-opacity-100 no-underline place-self-start;
+	}
+	.ShoppingCart__link {
+		@apply text-gray-500 hover:text-gray-700 text-center;
+	}
+	.ShoppingCart__empty {
+		@apply grid h-full content-center justify-items-center text-center font-semibold text-gray-500
+	}
+	.ShoppingCart__empty svg {
+		@apply text-4xl h-16 w-16 text-white rounded-full bg-violet-600  p-4 m-8
+	}
+	.ShoppingCart__empty button {
+		@apply px-7 w-full font-bold text-xl h-16 bg-violet-700 hover:bg-violet-600 text-white rounded-2xl my-10 mb-32 ;
+	}
+
+	.ShoppingCartItem {
+		@apply relative focus:bg-gray-100 rounded-md grid grid-cols-[auto_minmax(0,1fr)_auto] grid-rows-[auto_auto] text-sm py-3 text-gray-800 gap-x-6 gap-y-4;
+	}
+	.ShoppingCartItem__image {
+		@apply row-start-1 row-end-3 place-self-center rounded-md shadow-sm shadow-gray-200 overflow-hidden;
+	}
+	.ShoppingCartItem__image img {
+		@apply h-20 w-20 object-center object-cover bg-gray-200 bg-opacity-70;
+	}
+	.ShoppingCartItem__name {
+		@apply text-gray-700 hover:text-gray-400 overflow-hidden text-ellipsis h-fit leading-[16px];
+	}
+	.ShoppingCartItem__remove {
+		@apply absolute text-xl rounded-full my-2 p-2 text-gray-600 justify-self-end -top-1 -right-2 bg-gray-100;
+	}
+	.ShoppingCartItem__controls {
+		@apply flex border border-gray-100 shadow shadow-gray-300 rounded-full w-fit h-fit self-end text-lg items-center;
+	}
+	.ShoppingCartItem__controls button {
+		@apply h-10 w-10 flex justify-center items-center rounded-full active:bg-gray-50 text-xl disabled:text-gray-300;
+	}
+	.ShoppingCartItem__controls span {
+		@apply w-7 text-center;
+	}
+	.ShoppingCartItem__prices {
+		@apply row-start-1 row-end-3 col-start-3 text-end flex flex-col items-end justify-end;
+	}
+	.ShoppingCartItem__prices li {
+		@apply flex items-center gap-1 font-bold;
+	}
+	.ShoppingCartItem__prices li:first-of-type {
+		@apply text-gray-700 text-[15px] no-underline;
+	}
+	.ShoppingCartItem__prices.discount li:first-of-type {
+		@apply text-gray-400 text-[12px] line-through;
+	}
+	.ShoppingCartItem__prices li:last-of-type {
+		@apply text-gray-400 text-sm line-through;
+	}
+	.ShoppingCartItem__prices.discount li:last-of-type {
+		@apply text-blue-600 text-base no-underline;
+	}
+
+
+
+	/* Home Page */
+
+	.Banner {
+		@apply h-main sm:h-[30rem] xl:h-[36rem] grid relative lg:rounded-3xl overflow-hidden lg:mx-32 2xl:mx-60;
+	}
+	.Banner__image {
+		@apply h-full w-full object-cover object-center;
+	}
+	.Banner__caption {
+		@apply absolute h-full w-full flex flex-col place-content-center place-items-center text-center bg-black bg-opacity-40 text-white font-bold;
+	}
+	.Banner__caption h1 {
+		@apply text-[2.7rem] md:text-[3rem] xl:text-[3.5rem] 2xl:text-[4rem] max-w-[80%] my-8;
+	}
+	.Banner__caption button {
+		@apply bg-white text-gray-700 text-lg font-semibold w-fit px-8 py-3 rounded-full;
+	}
+
+	.Section {
+		@apply grid gap-10;
+	}
+	.Section--main {
+		@apply mx-10 md:mx-16 lg:mx-32 2xl:mx-60;
+	}
+	.Section__title {
+		@apply font-bold text-2xl lg:text-4xl text-gray-800;
+	}
+	.Section__content--categories {
+		@apply grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 w-full;
+	}
+	.Section__content--products {
+		@apply grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6 lg:gap-8 w-full;
+	}
+
+	.Category {
+		@apply relative aspect-square overflow-hidden rounded-2xl lg:rounded-2xl hover:shadow-xl shadow-md shadow-gray-300;
+	}
+	.Category__image {
+		@apply h-full w-full object-cover object-center;
+	}
+	.Category__caption {
+		@apply absolute h-full w-full bg-black bg-opacity-30 top-0 grid place-items-center text-white font-bold
+		text-2xl sm:text-4xl md:text-2xl xl:text-4xl;
+	}
+
+
+
+	/* Product Page */
+
+	.ProductSection {
+		@apply grid md:grid-cols-2 gap-10 mb-8;
+	}
+	.ProductSection__image {
+		@apply w-3/4 lg:w-2/3 aspect-square object-cover object-center shadow-xl rounded-2xl place-self-center bg-gray-200 bg-opacity-70;
+	}
+	.ProductSection__content {
+		@apply grid gap-4 lg:gap-8 h-fit;
+	}
+	.ProductSection__data {
+		@apply flex flex-col gap-2 xl:gap-2;
+	}
+	.ProductSection__name {
+		@apply font-bold text-2xl lg:text-4xl;
+	}
+	.ProductSection__reference {
+		@apply italic text-sm;
+	}
+	.ProductSection__description {
+		@apply md:text-sm;
+	}
+	.ProductSection__prices {
+		@apply grid gap-2 border-b pt-4 md:pt-2 pb-6 lg:pb-8 border-gray-200 border-opacity-80;
+	}
+	.ProductSection__prices span:nth-child(1) {
+		@apply font-bold text-2xl lg:text-3xl;
+	}
+	.ProductSection__prices span:nth-child(2) {
+		@apply flex items-center justify-end flex-row-reverse font-bold text-3xl lg:text-4xl text-blue-700 gap-2;
+	}
+	.ProductSection__controls {
+		@apply flex gap-6 items-center;
+	}
+	.ProductSection__controls div:first-child {
+		@apply flex w-fit h-fit items-center border shadow-sm shadow-gray-400 rounded-full text-lg;
+	}
+	.ProductSection__controls div:first-child button {
+		@apply h-10 w-10 flex justify-center items-center rounded-full active:bg-gray-50 text-xl disabled:text-gray-300;
+	}
+	.ProductSection__controls div:first-child span {
+		@apply w-7 text-center;
+	}
+	.ProductSection__controls div:last-child {
+		@apply flex self-center text-lg items-center gap-4;
+	}
+	.ProductSection__controls div:last-child button:nth-child(1) {
+		@apply h-14 md:h-14 w-fit px-5 flex text-lg items-center rounded-2xl text-gray-200 bg-violet-700 active:bg-violet-500;
+	}
+	.ProductSection__controls div:last-child button:nth-child(2) {
+		@apply hidden md:flex h-10 w-10 text-lg items-center justify-center rounded-full  active:bg-gray-300 border shadow-sm shadow-gray-400;
+	}
+
+
+
+	/* Products Page */
+
+	.ProductList {
+		@apply grid gap-y-14 gap-x-4 lg:gap-x-6 2xl:gap-x-8
+		   grid-cols-[repeat(auto-fill,minmax(140px,auto))] 
+		sm:grid-cols-[repeat(auto-fill,minmax(180px,auto))]
+		xl:grid-cols-[repeat(auto-fill,minmax(200px,auto))];
+	}
+
+	.ProductCard {
+		@apply flex flex-col h-auto gap-3;
+	}
+	.ProductCard__image {
+		@apply w-full aspect-square rounded-xl object-cover object-center bg-gray-200 bg-opacity-70 shadow-md
+	}
+	.ProductCard__info {
+		@apply flex-grow;
+	}
+	.ProductCard__name {
+		@apply block leading-[20px] text-sm text-gray-600 truncate;
+	}
+	.ProductCard__prices {
+		@apply mt-1 flex;
+	}
+	.ProductCard__prices span:nth-child(1) {
+		@apply text-sm font-bold mr-2 text-violet-600 flex items-center gap-1;
+	}
+	.ProductCard__prices span:nth-child(2) {
+		@apply text-xs font-semibold text-gray-400 mt-[2px] md:mt-[1px];
+	}
+	.ProductCard__button {
+		@apply flex justify-center self-start;
+	}
+	.ProductCard__button span {
+		@apply py-2 w-28 rounded-full bg-gray-200 bg-opacity-50 text-xs font-semibold text-gray-600
+		hover:border-violet-700 hover:bg-violet-700 hover:text-white hover:shadow-violet-300 
+		active:bg-violet-500 duration-100;
+	}
+	/* .ProductCard__button span {
+		@apply py-2 w-28 rounded-full text-xs font-semibold
+		bg-violet-600 text-white hover:shadow-violet-300 
+		active:bg-violet-500 duration-100;
+	} */
+	.ProductCard__button svg {
+		@apply text-3xl p-1 text-white bg-gray-600 rounded-full hidden;
+	}
+
+
+
+	/* Orders Page */
+
+	.OrderList {
+		@apply grid
+	}
+
+	.OrderCard {
+		@apply relative flex flex-col md:flex-row flex-wrap gap-y-2 md:gap-y-8 w-full md:items-center justify-between lg:justify-around hover:bg-gray-100 rounded-lg py-6 px-4 md:px-12 duration-75 ease-linear
+	}
+	.OrderCard:not(:last-of-type) {
+		@apply border-b
+	}
+	.OrderCard__id {
+		@apply w-full md:w-72 font-semibold
+	}
+	.OrderCard__date {
+		@apply w-fit md:w-28 text-start lg:text-center text-gray-400 md:text-gray-600 text-sm 
+	}
+	.OrderCard__state {
+		@apply  w-fit md:w-28 block flex-grow-0 rounded-full px-3 py-1 mt-2 md:mt-0 md:py-2 text-center text-xs font-semibold
+	}
+	.OrderCard__state--active {
+		@apply border-blue-700 bg-blue-100 text-blue-600
+	}
+	.OrderCard__state--pending {
+		@apply border-yellow-700 bg-yellow-100 text-yellow-600
+	}
+	.OrderCard__state--cancelled {
+		@apply border-red-700 bg-red-100 text-red-600
+	}
+	.OrderCard__state--delivered {
+		@apply border-green-700 bg-green-100 text-green-600
+	}
+	.OrderCard__price {
+		@apply self-end md:self-center w-fit md:w-32 text-end md:text-center font-bold text-2xl md:text-xl mt-4 md:mt-0
+	}
+
+
+
+	/* Order Page / Checkout Page */
+
+	.OrderConfirm {
+		@apply grid grid-flow-dense gap-10 lg:gap-14 2xl:gap-20 
+	}
+	.OrderConfirm--checkout {
+		@apply xl:grid-cols-[minmax(600px,auto)_minmax(300px,400px)];
+	}
+	.OrderConfirm--order {
+		@apply xl:grid-cols-[minmax(300px,400px)_minmax(600px,auto)];
+	}
+	.OrderConfirm__list {
+		@apply h-fit
+	}
+	.OrderConfirm__resume {
+		@apply bg-gray-100 rounded-2xl /* shadow-lg */ h-fit;
+	}
+	.OrderConfirm__list {
+		@apply grid gap-4 md:gap-6 p-4 md:p-6 lg:pr-8;
+	}
+	.OrderConfirm__resume {
+		@apply grid gap-y-4 md:gap-y-8 p-4;
+	}
+	.OrderConfirm__resume table {
+		@apply table-auto border-separate border-spacing-2 md:border-spacing-4 font-semibold text-gray-500;
+	}
+	.OrderConfirm__resume thead {
+		@apply text-lg md:text-xl text-gray-800;
+	}
+	.OrderConfirm__resume tbody {
+		@apply text-sm md:text-base
+	}
+	.OrderConfirm__resume table tr td:nth-child(2) {
+		@apply text-end;
+	}
+	.OrderConfirm__discount td:nth-child(2) {
+		@apply text-red-500;
+	}
+	.OrderConfirm__total {
+		@apply font-bold text-lg text-gray-800;
+	}
+	.OrderConfirm__button {
+		@apply flex items-center justify-between px-7 w-full font-bold text-lg md:text-xl h-16 md:h-20 bg-violet-700 hover:bg-violet-600 text-gray-100 rounded-2xl;
+	}
+
+	.OrderProductCard {
+		@apply relative focus:bg-gray-100 items-center 
+		gap-x-4 md:gap-x-10
+		grid grid-cols-[auto_minmax(0,1fr)_auto_auto] grid-rows-2;
+	}
+	.OrderProductCard:not(:last-of-type) {
+		@apply border-b pb-4
+	}
+	.OrderProductCard__image {
+		@apply place-self-center rounded-md shadow-sm shadow-gray-200 h-14 w-14 md:h-20 md:w-20 object-center object-cover bg-gray-100
+		row-start-1 row-end-3;
+	}
+	.OrderProductCard__name {
+		@apply text-sm md:text-base text-gray-500 hover:text-gray-700 truncate 
+		col-start-2 col-end-5 md:col-end-3 md:row-start-1 md:row-end-3;
+	}
+	.OrderProductCard__count {
+		@apply text-sm md:text-base font-bold 
+		col-start-2 md:col-start-3 col-end-4 md:row-start-1 md:row-end-3 
+	}
+	.OrderProductCard__price {
+		@apply flex gap-1 items-center justify-end font-bold md:text-lg  col-start-4 row-start-2 md:row-start-1 md:row-end-3 w-28 md:w-32;
+	}
+	.OrderProductCard__price.discount {
+		@apply text-blue-700;
+	}
+
+
+
+	/* Auth Page */
+
+	.Auth {
+		@apply fixed w-screen h-screen left-0 top-0 z-10 grid/* overflow-hidden */
+	}
+	.Auth--sign-up .Auth__box {
+		@apply -translate-y-full /* bg-[#f4dbe1] */
+	}
+	.Auth__box {
+		@apply flex justify-center items-center h-screen w-full ease-in-out duration-300 bg-[#e9dbf4]
+	}
+	.Auth__form {
+		@apply flex flex-col gap-3 bg-white sm:max-w-[26rem] max-h-screen overflow-y-auto w-full h-fit md:h-fit p-10 sm:rounded-3xl shadow-2xl
+	}
+	.Auth__title {
+		@apply text-center text-2xl my-3
+	}
+	.Auth__description {
+		@apply text-center text-sm mb-5
+	}
+	.Auth__options {
+		@apply text-sm flex gap-2 my-1
+	}
+	.Auth__options span:nth-of-type(2) {
+		@apply font-bold text-violet-700 cursor-pointer
+	}
+	.Auth__error-message {
+		@apply flex items-center justify-center h-6 text-sm text-red-500
+	}
+
+
+
+	/* Forms */
+
+	.form__input {
+		@apply relative cursor-text text-gray-700
+	}
+	.form__input-field {
+		@apply outline-violet-400 focus-visible:outline-violet-400 bg-transparent h-[52px] border rounded-full border-gray-300 px-4 ease-linear duration-100 w-full
+	}
+	.form__input-label {
+		@apply absolute my-[14px] mx-4 px-2 top-0 left-0 bg-white rounded-full ease-linear duration-100 text-gray-500
+	}
+	.form__input-icon {
+		@apply absolute my-[14px] text-xl mx-4 px-2 right-0 bg-white text-gray-500 cursor-pointer z-10
+	}
+	.form__input-field:focus ~ .form__input-label {
+		@apply text-violet-500 -top-6 text-sm mx-2
+	}
+	.form__input-label--active {
+		@apply -top-6 text-sm mx-2 text-gray-400
+	}
+	.form__button {
+		@apply h-14 py-4 rounded-full mt-1 text-white bg-violet-700 hover:bg-violet-600 active:bg-violet-700 disabled:bg-gray-500
+	}
+
+}
