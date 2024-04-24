@@ -110,7 +110,7 @@
 		@apply w-full h-full;
 	}
 	.post-title-bg span {
-		@apply flex absolute items-center justify-center h-full w-full font-bold text-xl sm:text-3xl px-10 text-center top-0 whitespace-pre-wrap break-words;
+		@apply flex absolute items-center justify-center h-full w-full font-bold text-xl sm:text-3xl px-10 text-center top-0 whitespace-pre-wrap break-all;
 	}
 	.post-image {
 		@apply flex justify-center w-full
