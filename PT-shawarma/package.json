@@ -1,0 +1,23 @@
+{
+  "name": "pt-shawarma",
+  "version": "1.0.0",
+  "description": "### Prueba para Casa de Desarrollo Full-Stack",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter '**' dev",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
