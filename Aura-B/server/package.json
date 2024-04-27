@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "AuraBelleza-App Server-Backend",
+  "description": "AuraBelleza-App API-Backend",
   "main": "index.js",
   "type": "module",
   "scripts": {
