@@ -1,0 +1,23 @@
+{
+  "name": "Facebook",
+  "version": "1.0.0",
+  "description": "A Facebook main page clon, with chat real time",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm --filter '**' dev",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "author": "Jerast",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}

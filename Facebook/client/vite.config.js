@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react()],
-	// base: '/PostList/',
+	// base: '/Facebook/',
 	server: {
 		// host: true,
 	// 	proxy: {
