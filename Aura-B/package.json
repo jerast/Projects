@@ -4,6 +4,7 @@
   "description": "A full-stack virtual shop",
   "main": "index.js",
   "scripts": {
+    "prod": "pnpm --filter '**' prod",
     "dev": "pnpm --filter '**' dev",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },

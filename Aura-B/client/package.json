@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "host": "vite --host",
+    "prod": "http-server dist/",
     "build": "vite build",
     "preview": "vite preview"
   },
