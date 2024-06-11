@@ -1,24 +1,34 @@
 # Aura-B Project
 
+![](https://res.cloudinary.com/dlgvigwlh/image/upload/h_130/Aura-B/aurab_logo.png)
+
+[TOCM]
+
+[TOC]
+
+
 ## Descripción
 
-El proyecto de desarrollo "Aura-B" tiene como objetivo crear una tienda virtual completa y funcional que permita a los usuarios comprar una amplia variedad de productos en línea. Este proyecto se centrará en la creación de una plataforma robusta, segura y fácil de usar que brinde una experiencia de compra satisfactoria para los clientes.
+El proyecto de desarrollo *"Aura-B"* tiene como objetivo crear una tienda virtual completa y funcional que permita a los usuarios comprar una amplia variedad de productos en línea. Este proyecto se centrará en la creación de una plataforma robusta, segura y fácil de usar que brinde una experiencia de compra satisfactoria para los clientes.
+
 
 ## Tecnologías Utilizadas
 
+
 - **Frontend**:
-  - Framework: React.js
-  - Estado Global: Redux
-  - Estilos: Tailwind CSS
-  - Comunicación con el Backend: Axios
+  - **Framework**: *React.js*
+  - **Estado Global**: *Redux*
+  - **Estilos**: *Tailwind CSS*
+  - **Comunicación con el Backend**: *Axios*
 
 - **Backend**:
-  - Framework: Node.js con Express.js
-  - Autenticación: JWT (JSON Web Tokens)
-  - Base de Datos: MongoDB
+  - **Framework**: *Node.js* con *Express.js*
+  - **Autenticación**: *JWT (JSON Web Tokens)*
+  - **Base de Datos**: *MongoDB*
 
 - **Herramientas Adicionales**:
-  - Control de Versiones: Git, GitHub
+  - **Control de Versiones**: *Git*, *GitHub*
+
 
 ## Funcionalidades Principales
 
@@ -29,9 +39,11 @@ El proyecto de desarrollo "Aura-B" tiene como objetivo crear una tienda virtual 
 5. **Gestión de Pedidos**: Seguimiento de pedidos, confirmación de compra y generación de facturas.
 6. **Panel de Administración**: Interfaz para administrar productos, usuarios y pedidos.
 
+
 ## Estado del Proyecto
 
-El prouecto ya se encuentra en una etapa intermedia del desarrollo, tanto del front-end como de back-end. Las funcionalidades principales ya desarrolladas son: 1, 2, 3, 5 y 6 desarrolladas, faltando el *proceso de pago* (4).
+El proyecto "Aura-B" ha alcanzado una etapa intermedia de desarrollo, con las funcionalidades principales *1*, *2*, *3*, *5* **ya implementadas con éxito**. Actualmente, nos encontramos trabajando en la integración del *proceso de pago (funcionalidad 4)* y el *panel de administración (funcionalidad 6)*, que esperamos completar en los **próximos meses**.
+
 
 ## Contribuciones
 
