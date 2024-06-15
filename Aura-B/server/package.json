@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
+    "host": "nodemon src/index.js",
     "prod": "node src/index.js"
   },
   "author": "Jerast",

@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js --ignore client",
+    "host": "nodemon src/index.js --ignore client",
     "start": "node src/index.js"
   },
   "keywords": [],

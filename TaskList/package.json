@@ -1,7 +1,7 @@
 {
-  "name": "Aura-B",
+  "name": "TaskList",
   "version": "1.0.0",
-  "description": "A full-stack virtual shop",
+  "description": "Like a todo app",
   "main": "index.js",
   "scripts": {
     "prod": "pnpm --filter '**' prod",
