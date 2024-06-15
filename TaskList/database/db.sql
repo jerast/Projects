@@ -1,7 +1,7 @@
--- create `tasksdb` database
-CREATE DATABASE IF NOT EXISTS tasksdb;
+-- create `tasklist` database
+CREATE DATABASE IF NOT EXISTS tasklist;
 
-USE tasksdb;
+USE tasklist;
 
 -- table `tasks`
 CREATE TABLE tasks (

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'http://192.168.0.252:4000/api';
+const API = import.meta.env.VITE_TASKLIST_APIURL || 'http://192.168.0.1:1000/';
 
 export const getTasksRequest = async () =>
     await axios.get(`${API}/tasks`);
