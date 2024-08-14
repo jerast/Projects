@@ -11,6 +11,7 @@ El proyecto de desarrollo "Aura-B" tiene como objetivo crear una tienda virtual 
   - Estado Global: Redux
   - Estilos: Tailwind CSS
   - Comunicación con el Backend: Axios
+  - Imágenes y recursos digitales: Cloudinary
 
 - **Backend**:
   - Framework: Node.js con Express.js
@@ -31,7 +32,7 @@ El proyecto de desarrollo "Aura-B" tiene como objetivo crear una tienda virtual 
 
 ## Estado del Proyecto
 
-El prouecto ya se encuentra en una etapa intermedia del desarrollo, tanto del front-end como de back-end. Las funcionalidades principales ya desarrolladas son: 1, 2, 3, 5 y 6 desarrolladas, faltando el *proceso de pago* (4).
+El proyecto ya se encuentra en una etapa intermedia del desarrollo, tanto del front-end como de back-end. Las funcionalidades principales ya desarrolladas son: 1, 2, 3, 5 y 6 desarrolladas, faltando el *proceso de pago* (4).
 
 ## Contribuciones
 

@@ -12,3 +12,7 @@ export const setLastPath = () => {
 }
 
 export const getLastPath = () => sessionStorage.getItem('lastPath') || '/';
+
+// /[a-záéíóú]+/gi
+// /\p{L}+/gu
+// /[a-záéíóú]*[a-záéíóú]/gi
