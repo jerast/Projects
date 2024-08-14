@@ -14,7 +14,7 @@ const PostCard = ({ post }) => {
 		if (post.titleBg)
 			return (
 				<div className="post-title-bg">
-					<img src={backgrounds[post.titleBg - 1].url} alt="" />
+					<img src={resize(backgrounds[post.titleBg - 1].url)} alt="" />
 					<span
 						className={
 							backgrounds[post.titleBg - 1].dark ? 'text-zinc-200' : 'text-zinc-700'

@@ -5,6 +5,7 @@ import { BsXLg, BsFilePlusFill } from 'react-icons/bs';
 import toast from 'react-hot-toast';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { resize } from '../helpers/resizers';
 
 export const PostForm = () => {
 	const { getPost, createPost, updatePost, backgrounds } = usePosts();
@@ -113,7 +114,7 @@ export const PostForm = () => {
 												checked={values.titleBg == item.id + 1 ? 'checked' : ''}
 												onChange={handleChange}
 											/>
-											<img src={item.mini} alt="" />
+											<img src={resize(item.mini)} alt="" />
 										</label>
 									))}
 							</div>

@@ -7,8 +7,6 @@ const app = express();
 
 // middlewares
 app.use(cors());
-// app.use(cors({ origin: 'http://localhost:5173', }));
-// app.use(cors({ origin: 'http://192.168.0.252:5173', }));
 app.use(express.json());
 app.use(fileUpload({
     useTempFiles: true,

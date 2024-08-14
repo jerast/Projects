@@ -35,12 +35,12 @@ export const createPost = async (request, response) => {
 		let image;
 
 		if (request.files?.image) {
-			const { public_id, secure_url } = await uploadImage(request.files.image.tempFilePath);
-
+			const { public_id, version } = await uploadImage(request.files.image.tempFilePath);
+      
 			await fs.remove(request.files.image.tempFilePath);
 
 			image = {
-				url: secure_url,
+				url: `v${version}/${public_id}`,
 				public_id,
 			};
 		}
@@ -59,12 +59,12 @@ export const updatePost = async (request, response) => {
 		let image;
 
 		if (request.files?.image) {
-			const { public_id, secure_url } = await uploadImage(request.files.image.tempFilePath);
+			const { public_id, version } = await uploadImage(request.files.image.tempFilePath);
 
 			await fs.remove(request.files.image.tempFilePath);
 
 			image = {
-				url: secure_url,
+				url: `v${version}/${public_id}`,
 				public_id,
 			};
 		}

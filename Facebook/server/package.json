@@ -5,9 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js --ignore client",
-    "host": "nodemon src/index.js --ignore client",
-    "start": "node src/index.js"
+    "dev": "node --watch src/index",
+    "host": "node --watch src/index",
+    "start": "node src/index"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +22,5 @@
     "http-errors": "^2.0.0",
     "mongoose": "^6.7.3",
     "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }

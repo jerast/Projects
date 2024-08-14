@@ -8,7 +8,7 @@ cloudinary.config({
 });
 
 export const uploadImage = async (filePath) =>
-	await cloudinary.uploader.upload(filePath, { folder: 'uploadFilesAPI' });
+	await cloudinary.uploader.upload(filePath, { folder: 'uploadFilesAPI/posts' });
 
 export const deleteImage = async (public_id) => 
 	await cloudinary.uploader.destroy(public_id);
